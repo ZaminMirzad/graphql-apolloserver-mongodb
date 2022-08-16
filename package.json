@@ -1,0 +1,27 @@
+{
+  "name": "graphql-apolloserver-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mohammad Zamin",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "apollo-datasource-mongodb": "^0.5.4",
+    "apollo-datasource-rest": "^3.6.1",
+    "apollo-server": "^3.10.1",
+    "apollo-server-core": "^3.10.1",
+    "dotenv": "^16.0.1",
+    "graphql": "^16.5.0",
+    "mongodb": "^4.8.1",
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
