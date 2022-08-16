@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "apollo-datasource-mongodb": "^0.5.4",
-    "apollo-datasource-rest": "^3.6.1",
     "apollo-server": "^3.10.1",
     "apollo-server-core": "^3.10.1",
     "dotenv": "^16.0.1",
