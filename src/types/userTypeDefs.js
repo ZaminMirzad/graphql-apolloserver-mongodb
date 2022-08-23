@@ -7,6 +7,7 @@ module.exports = gql`
     lastName: String!
     email: String!
     phone: String
+    favorites: [String]
   }
 
   # query types
@@ -37,5 +38,6 @@ module.exports = gql`
     createUser(userData: CreateUserInput!): User!
     updateUser(id: ID, userData: UpdateUserInput!): User!
     deleteUser(id: ID): DeleteUserInput!
+    updateUserFavorites(userId: ID, productId: ID): User
   }
 `;
