@@ -1,4 +1,6 @@
 const { User } = require('../../models/User');
+const { Product } = require('../../models/Product');
+const { Cart } = require('../../models/Cart');
 
 // ? Create new user
 const createUser = async (_, { userData }, { models }) => {
@@ -24,4 +26,70 @@ const deleteUser = async (_, { id }, { models }) => {
   if (deleteUser.deletedCount) return { id: id };
 };
 
-module.exports = { createUser, updateUser, deleteUser };
+// ? Create new Product
+const addProduct = async (_, { productDetails }, { models }) => {
+  const newProd = new Product(productDetails);
+  const savedProd = await newProd.save();
+  return savedProd;
+};
+// ! Delete user
+const deleteProduct = async (_, { id }, { models }) => {
+  const deleteProd = await Product.deleteOne({ _id: id });
+
+  if (deleteProd.deletedCount) return { id: id };
+};
+
+// ? Add to cart
+const addToCart = (async = async (_, { item }, { models }) => {
+  const newItem = new Cart(item);
+  const savedItem = await newItem.save();
+  return savedItem;
+});
+
+// ? Update cart
+const updateCartItem = async (_, { id, updateInputs }, { models }) => {
+  const updatedCartItem = await Cart.findByIdAndUpdate(
+    { _id: id },
+    { $set: updateInputs },
+    { new: true }
+  );
+  return updatedCartItem;
+};
+
+// ! Delete from cart
+const deleteFromCart = async (_, { id }, { models }) => {
+  const deleteItem = await Cart.deleteOne({ _id: id });
+
+  if (deleteItem.deletedCount) return { id: id };
+};
+
+// ? Add to favorites inside user
+const updateUserFavorites = (async = async (_, { userId, productId }) => {
+  const user = await User.findById(userId);
+  if (user.favorites.includes(productId)) {
+    const deleteFavorite = await User.findByIdAndUpdate(
+      { _id: userId },
+      { $pull: { favorites: productId } }
+    );
+
+    return deleteFavorite;
+  } else {
+    const updateFavor = await User.findByIdAndUpdate(
+      { _id: userId },
+      { $push: { favorites: productId } }
+    );
+    return updateFavor;
+  }
+});
+
+module.exports = {
+  createUser,
+  updateUser,
+  deleteUser,
+  addProduct,
+  deleteProduct,
+  addToCart,
+  updateCartItem,
+  deleteFromCart,
+  updateUserFavorites,
+};

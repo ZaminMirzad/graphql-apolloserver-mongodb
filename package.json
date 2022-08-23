@@ -12,6 +12,7 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@mongoosejs/double": "^0.2.0",
     "apollo-datasource-mongodb": "^0.5.4",
     "apollo-server": "^3.10.1",
     "apollo-server-core": "^3.10.1",

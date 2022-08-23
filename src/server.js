@@ -9,6 +9,7 @@ const typeDefs = require('./types');
 const resolvers = require('./resolvers');
 const models = require('./models');
 
+// connect to mongodb
 connectDB();
 
 // create server

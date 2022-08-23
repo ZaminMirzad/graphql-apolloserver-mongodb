@@ -1,4 +1,6 @@
 const { User } = require('../../models/User');
+const { Product } = require('../../models/Product.js');
+const { Cart } = require('../../models/Cart.js');
 
 const user = async (_, { id }, { models }) => {
   return await User.findOne({ _id: id });
@@ -7,5 +9,28 @@ const user = async (_, { id }, { models }) => {
 const users = async (_, {}, { models }) => {
   return await User.find();
 };
+//? product
+const products = async (_, {}, { models }) => {
+  return await Product.find();
+};
 
-module.exports = { users, user };
+const product = async (_, { id }, { models }) => {
+  return await Product.findById(id);
+};
+
+//? cart
+const cartItems = async (_, {}, { models }) => {
+  return await Cart.find();
+};
+const cartItem = async (_, { id }, { models }) => {
+  return await Cart.findOne({ _id: id });
+};
+
+module.exports = {
+  users,
+  user,
+  products,
+  product,
+  cartItems,
+  cartItem,
+};
