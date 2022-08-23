@@ -20,13 +20,19 @@ module.exports = gql`
     products: [Product]
     product(id: ID): Product
   }
-
+  
   # addProductInput
+  input RatingInput{
+   rate:Float
+   count:Int	
+  }
   input CreateProductInput {
     title: String!
     category: String
     image: String
     price: Float
+    description:String
+    rating:RatingInput
   }
 
   type DeleteInput {
