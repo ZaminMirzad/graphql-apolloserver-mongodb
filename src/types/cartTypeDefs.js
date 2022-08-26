@@ -46,7 +46,6 @@ module.exports = gql`
     count: Int
   }
   input AddToCartInput {
-    id: String
     userId: String!
     cartTotalItems: Int
     cartTotalPrice: Float
