@@ -18,12 +18,16 @@ module.exports = gql`
   type Cart {
     _id: String
     userId: String
+    totalPrice: String
+    totalItems: Int
     items: [Product]
   }
 
   type Query {
-    cartItems: Cart
+    cartItems: [Cart]
     cartItem(id: ID): Cart
+    userOrders(userId: String!): [Cart]
+    order(id: String!): Cart
   }
 
   # AddToCartInput
@@ -39,6 +43,7 @@ module.exports = gql`
     image: String
     price: Float
     rating: RateInput
+    count: Int
   }
   input AddToCartInput {
     id: String
@@ -53,7 +58,7 @@ module.exports = gql`
   }
   # mutation
   type Mutation {
-    addToCart(item: AddToCartInput!): Cart
+    addToMyOrders(item: AddToCartInput!): Cart
     deleteFromCart(id: ID!): DeleteInput
     updateCartItem(id: ID!, updateInputs: AddToCartInput!): Product
   }

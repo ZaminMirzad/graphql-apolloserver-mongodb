@@ -25,6 +25,12 @@ const cartItems = async (_, {}, { models }) => {
 const cartItem = async (_, { id }, { models }) => {
   return await Cart.findOne({ _id: id });
 };
+const userOrders = async (_, { userId }, { models }) => {
+  return await Cart.find({ userId: userId });
+};
+const order = async (_, { id }, { models }) => {
+  return await Cart.findOne({ _id: id });
+};
 
 module.exports = {
   users,
@@ -33,4 +39,6 @@ module.exports = {
   product,
   cartItems,
   cartItem,
+  userOrders,
+  order,
 };
