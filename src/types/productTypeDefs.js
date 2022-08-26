@@ -27,12 +27,12 @@ module.exports = gql`
     count: Int
   }
   input CreateProductInput {
-    title: String!
+    title: String
     category: String
     image: String
     price: Float
     description: String
-    rating: RatingInput
+    #rating: RatingInput
   }
 
   type DeleteInput {
@@ -41,7 +41,7 @@ module.exports = gql`
 
   # mutation type
   type Mutation {
-    addProduct(productDetails: CreateProductInput): Product
+    addProduct(inputs: CreateProductInput): Product
     deleteProduct(id: ID): DeleteInput
   }
 `;

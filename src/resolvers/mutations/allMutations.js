@@ -27,8 +27,9 @@ const deleteUser = async (_, { id }, { models }) => {
 };
 
 // ? Create new Product
-const addProduct = async (_, { productDetails }, {}) => {
-  const newProd = new Product(productDetails);
+const addProduct = async (_, { inputs }, {}) => {
+  const newProd = new Product(inputs);
+  console.log(newProd);
   const savedProd = await newProd.save();
   return savedProd;
 };
@@ -40,7 +41,7 @@ const deleteProduct = async (_, { id }, { models }) => {
 };
 
 // ? Add to cart
-const addToCart = (async = async (_, { item }, { models }) => {
+const addToMyOrders = (async = async (_, { item }, { models }) => {
   const newItem = new Cart(item);
   const savedItem = await newItem.save();
   return savedItem;
@@ -88,7 +89,7 @@ module.exports = {
   deleteUser,
   addProduct,
   deleteProduct,
-  addToCart,
+  addToMyOrders,
   updateCartItem,
   deleteFromCart,
   updateUserFavorites,
