@@ -18,8 +18,8 @@ module.exports = gql`
   type Cart {
     _id: String
     userId: String
-    totalPrice: String
-    totalItems: Int
+    cartTotalItems: Int
+    cartTotalPrice: Float
     items: [Product]
   }
 
@@ -48,8 +48,8 @@ module.exports = gql`
   input AddToCartInput {
     id: String
     userId: String!
-    totalItems: Int
-    totalPrice: Float
+    cartTotalItems: Int
+    cartTotalPrice: Float
     items: [Item]!
   }
 
