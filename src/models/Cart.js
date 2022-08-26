@@ -4,10 +4,9 @@ const Double = require('@mongoosejs/double');
 const { Schema } = mongoose;
 
 const cartSchema = new Schema({
-  id: String,
   userId: String,
-  totalPrice: Double,
-  totalItems: Number,
+  cartTotalPrice: Double,
+  cartTotalItems: Number,
   items: Array,
 });
 
