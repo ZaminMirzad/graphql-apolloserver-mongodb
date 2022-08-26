@@ -18,21 +18,21 @@ module.exports = gql`
   # query type
   type Query {
     products: [Product]
-    product(id: ID): Product
+    product(id: String): Product
   }
-  
+
   # addProductInput
-  input RatingInput{
-   rate:Float
-   count:Int	
+  input RatingInput {
+    rate: Float
+    count: Int
   }
   input CreateProductInput {
     title: String!
     category: String
     image: String
     price: Float
-    description:String
-    rating:RatingInput
+    description: String
+    rating: RatingInput
   }
 
   type DeleteInput {

@@ -27,12 +27,12 @@ const deleteUser = async (_, { id }, { models }) => {
 };
 
 // ? Create new Product
-const addProduct = async (_, { productDetails }, { models }) => {
+const addProduct = async (_, { productDetails }, {}) => {
   const newProd = new Product(productDetails);
   const savedProd = await newProd.save();
   return savedProd;
 };
-// ! Delete user
+// ! Delete product
 const deleteProduct = async (_, { id }, { models }) => {
   const deleteProd = await Product.deleteOne({ _id: id });
 
