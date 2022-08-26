@@ -18,7 +18,7 @@ module.exports = gql`
   # query type
   type Query {
     products: [Product]
-    product(id: ID): Product
+    product(id: String): Product
   }
 
   # addProductInput
