@@ -14,6 +14,8 @@ module.exports = gql`
     price: Float
     rating: Rate
     count: Int
+    createdAt: String
+    updatedAt: String
   }
   type Cart {
     _id: String
@@ -21,6 +23,8 @@ module.exports = gql`
     cartTotalItems: Int
     cartTotalPrice: Float
     items: [Product]
+    createdAt: String
+    updatedAt: String
   }
 
   type Query {
